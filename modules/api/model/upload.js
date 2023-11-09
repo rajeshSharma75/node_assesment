@@ -21,6 +21,10 @@ function uploadModel (){
           
             let image = req.files && req.files.image ? req.files.image : '';
           
+            if (image.size > 2 * 1024 * 1024) {
+                return res.status(400).send('File size exceeds the limit of 2 MB.');
+            }
+
             let options	=	{
 				'image' 	:	image,
 				'filePath' 	: 	IMAGE_UPLOAD_PATH,

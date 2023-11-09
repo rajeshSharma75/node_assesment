@@ -18,7 +18,9 @@
 
      /** Use to upload files */
      var fileUpload = require('express-fileupload');
-     app.use(fileUpload());
+     app.use(fileUpload({ 
+        limits: { fileSize: 2 * 1024 * 1024 },
+    }));
 
 
     /**requiring connection module*/ 
